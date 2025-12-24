@@ -25,8 +25,6 @@ docker run --rm -ti \
  electronuserland/builder:wine \
  bash -c "cd /project && pnpm install --force && pnpm build && pnpm dist --linux --win"
 
-mv dist/latest.yml dist/latest-win.yml
-
 echo "Linux & Windows build completed."
 
 # Step 4: Build Mac distribution
