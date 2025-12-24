@@ -192,14 +192,14 @@ export default function Settings({ onClose }: SettingsProps) {
               </div>
 
               <div style={styles.field}>
-                <label style={styles.label}>Cloud Frontend URL</label>
+                <label style={styles.label}>Console URL</label>
                 <input
                   type="text"
                   style={styles.input}
                   value={config.frontendUrl}
                   onChange={(e) => setConfig({...config, frontendUrl: e.target.value})}
                 />
-                <p style={styles.hint}>URL of your cloud-deployed frontend</p>
+                <p style={styles.hint}>URL of AInTandem Console</p>
               </div>
 
               <div style={styles.field}>
@@ -303,7 +303,7 @@ export default function Settings({ onClose }: SettingsProps) {
                   type="number"
                   style={styles.input}
                   value={config.services.backend.port}
-                  onChange={(e) => setConfig({...config, services: {...config.services, backend: {...config.services.backend, port: parseInt(e.target.value)}}})}
+                  onChange={(e) => setConfig({...config, services: {...config.services, orchestrator: {...config.services.backend, port: parseInt(e.target.value)}}})}
                 />
               </div>
 
@@ -313,7 +313,7 @@ export default function Settings({ onClose }: SettingsProps) {
                   type="text"
                   style={styles.input}
                   value={config.services.backend.username || 'admin'}
-                  onChange={(e) => setConfig({...config, services: {...config.services, backend: {...config.services.backend, username: e.target.value}}})}
+                  onChange={(e) => setConfig({...config, services: {...config.services, orchestrator: {...config.services.backend, username: e.target.value}}})}
                 />
               </div>
 
@@ -321,7 +321,7 @@ export default function Settings({ onClose }: SettingsProps) {
                 <label style={styles.label}>Backend Password</label>
                 <PasswordInput
                   value={config.services.backend.password || 'aintandem'}
-                  onChange={(e) => setConfig({...config, services: {...config.services, backend: {...config.services.backend, password: e.target.value}}})}
+                  onChange={(e) => setConfig({...config, services: {...config.services, orchestrator: {...config.services.backend, password: e.target.value}}})}
                   placeholder="Enter backend password"
                   showPassword={showBackendPassword}
                   setShowPassword={setShowBackendPassword}

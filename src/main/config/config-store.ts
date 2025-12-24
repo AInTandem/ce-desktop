@@ -30,7 +30,7 @@ export class ConfigStore {
         services: {
           type: 'object',
           properties: {
-            backend: {
+            orchestrator: {
               type: 'object',
               properties: {
                 port: { type: 'number' },

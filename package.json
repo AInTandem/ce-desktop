@@ -59,6 +59,7 @@
   "build": {
     "appId": "org.aintandem-desktop",
     "productName": "AInTandem Desktop",
+    "icon": "build_assets/icon.png",
     "directories": {
       "buildResources": "build",
       "output": "dist"
@@ -77,6 +78,7 @@
       }
     ],
     "mac": {
+      "icon": "build_assets/icon.png",
       "target": [
         "dmg",
         "zip"
@@ -85,12 +87,14 @@
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "win": {
+      "icon": "build_assets/icon.png",
       "target": [
         "nsis"
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "linux": {
+      "icon": "build_assets/icon.png",
       "target": [
         "AppImage"
       ],

@@ -15,7 +15,7 @@ export interface KaiConfig {
 
   // Services
   services: {
-    backend: {
+    orchestrator: {
       port: number
       nodeEnv: 'development' | 'production'
       username?: string
@@ -73,7 +73,7 @@ export const defaultConfig: KaiConfig = {
   preferredRuntime: 'auto',
   baseDirectory: '',
   services: {
-    backend: {
+    orchestrator: {
       port: 9900,
       nodeEnv: 'production',
       username: 'admin',
@@ -84,7 +84,7 @@ export const defaultConfig: KaiConfig = {
       port: 8443
     }
   },
-  frontendUrl: 'http://localhost:9901',
+  frontendUrl: 'https://console.aintandem.org',
   env: {
     dockerNetwork: 'aintandem-net',
     imageName: 'flexy-dev-sandbox:latest',
