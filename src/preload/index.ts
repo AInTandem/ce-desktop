@@ -245,8 +245,8 @@ contextBridge.exposeInMainWorld('aintandemCredentials', {
       try {
         const config = await window.kai.config.get();
         return {
-          username: config.services.backend.username || DEFAULT_USERNAME,
-          password: config.services.backend.password || DEFAULT_PASSWORD
+          username: config.services.orchestrator.username || DEFAULT_USERNAME,
+          password: config.services.orchestrator.password || DEFAULT_PASSWORD
         };
       } catch (error) {
         console.error('Could not retrieve backend credentials:', error);

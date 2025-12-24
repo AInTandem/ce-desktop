@@ -28,8 +28,8 @@ export function getServiceDefinitions(): Record<string, ServiceDefinition> {
         name: 'aintandem-orchestrator-ce',
         image: 'ghcr.io/aintandem/orchestrator-ce:latest',
         env: {
-          NODE_ENV: config.services.backend.nodeEnv,
-          PORT: config.services.backend.port.toString(),
+          NODE_ENV: config.services.orchestrator.nodeEnv,
+          PORT: config.services.orchestrator.port.toString(),
           DOCKER_NETWORK: config.env.dockerNetwork,
           IMAGE_NAME: config.env.imageName,
           KAI_BASE_ROOT: config.baseDirectory,
@@ -44,11 +44,11 @@ export function getServiceDefinitions(): Record<string, ServiceDefinition> {
           EMBEDDING_DIMENSIONS: config.env.embeddingDimensions.toString(),
           AUTO_CAPTURE_ENABLED: config.env.autoCaptureEnabled.toString(),
           EXTRACT_FACTS_ENABLED: config.env.extractFactsEnabled.toString(),
-          AUTH_USERNAME: config.services.backend.username || 'admin',
-          AUTH_PASSWORD: config.services.backend.password || 'aintandem'
+          AUTH_USERNAME: config.services.orchestrator.username || 'admin',
+          AUTH_PASSWORD: config.services.orchestrator.password || 'aintandem'
         },
         ports: {
-          [config.services.backend.port.toString()]: config.services.backend.port.toString()
+          [config.services.orchestrator.port.toString()]: config.services.orchestrator.port.toString()
         },
         volumes: [
           {

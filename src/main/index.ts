@@ -490,9 +490,17 @@ async function updateTrayMenu() {
 
 // Auto-updater configuration
 function setupAutoUpdater() {
-  // Configure auto-updater
-  autoUpdater.autoDownload = false // Don't auto-download, ask user first
-  autoUpdater.autoInstallOnAppQuit = true
+  // Get config to determine update settings
+  const config = getConfigStoreSync().getConfig();
+
+  // Configure auto-updater based on user preferences
+  autoUpdater.autoDownload = config.updates.autoDownload;
+  autoUpdater.autoInstallOnAppQuit = config.updates.autoInstall;
+
+  // Set update channel if specified
+  if (config.updates.channel && config.updates.channel !== 'stable') {
+    autoUpdater.channel = config.updates.channel;
+  }
 
   // Event handlers
   autoUpdater.on('checking-for-update', () => {
@@ -536,8 +544,8 @@ function setupAutoUpdater() {
     })
   })
 
-  // Check for updates on startup (production only)
-  if (process.env.NODE_ENV !== 'development') {
+  // Check for updates on startup (production only) if autoCheck is enabled
+  if (process.env.NODE_ENV !== 'development' && config.updates.autoCheck) {
     setTimeout(() => {
       autoUpdater.checkForUpdates().catch((err) => {
         console.error('Failed to check for updates:', err)

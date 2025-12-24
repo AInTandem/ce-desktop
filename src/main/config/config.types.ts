@@ -60,6 +60,14 @@ export interface KaiConfig {
     startMinimized: boolean
     minimizeToTray: boolean
   }
+
+  // Update preferences
+  updates: {
+    autoCheck: boolean
+    autoDownload: boolean
+    autoInstall: boolean
+    channel: 'stable' | 'beta' | 'alpha'
+  }
 }
 
 /**
@@ -104,6 +112,12 @@ export const defaultConfig: KaiConfig = {
     theme: 'system',
     startMinimized: false,
     minimizeToTray: true
+  },
+  updates: {
+    autoCheck: true,
+    autoDownload: false,
+    autoInstall: false,
+    channel: 'stable'
   }
 }
 
